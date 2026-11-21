@@ -7,3 +7,4 @@ submissions/
 out/
 *.zip
 .env
+.idea
