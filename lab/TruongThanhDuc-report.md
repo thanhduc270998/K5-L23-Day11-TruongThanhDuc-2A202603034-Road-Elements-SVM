@@ -1,10 +1,11 @@
 # Báo cáo cá nhân — Ngày 11
-Họ tên: Trương Thành Đức              
-Mã học viên:  2A202603034
-Phiên bản CVAT (Help → About):  2.74.1
-Guideline: Road v1.0    
-Lần nộp (`revision` trong manifest):  1
-Thời điểm export (ngày giờ trên CVAT):  21/11/2026  Số lần nộp lại sau Rework: 1
+-   Họ tên: Trương Thành Đức              
+-   Mã học viên:  2A202603034
+-   Phiên bản CVAT (Help → About):  2.74.1
+-   Guideline: Road v1.0    
+-   Lần nộp (`revision` trong manifest):  1
+-   Thời điểm export (ngày giờ trên CVAT):  21/11/2026  
+-   Số lần nộp lại sau Rework: 1
 
 ## 1. Kiểm project
 | Mục | Đúng như guideline Road v1.0? | Ghi chú |
@@ -55,7 +56,7 @@ Bạn kiểm lô của tôi:  Quyết định nhận được:
 Lỗi bạn mắc nhiều nhất hôm nay (theo mã QC1-xx), và cách tránh ở Ngày 20: 
 - Lỗi mắc nhiều nhất hôm nay là `QC1-11` (trên ảnh fisheye quên bật `edge_zone` cho 4 box đèn/biển sát mép ở `B02`, `B03`, `B04` và vẽ `lane` ở `B08` chỉ có 2 điểm chưa bám cung cong), kế đến là nhóm lỗi quên sửa giá trị mặc định của CVAT và nhầm tag (`QC1-01` gán nhầm `fisheye_left`/`fisheye_right` ở `B06`, `B07` và sót tag `weather`/`timeofday` ở `A03`, `B04`; `QC1-03` quên đổi `position = other` cho `lane` ở camera hai bên `B06–B08`). 
 - Cách tránh ở Ngày 20: tuân thủ chặt thứ tự làm từng ảnh — đặt đủ 4 tag ảnh trước và đối chiếu hậu tố tên file (`MVL → fisheye_left`, `MVR → fisheye_right`), sau khi vẽ mỗi shape mở ngay bảng Details chỉnh lại thuộc tính thay vì để mặc định, trên ảnh fisheye luôn đặt nhiều điểm dọc theo cung cong và kiểm tra bán kính 80% cho `edge_zone`, cuối buổi self-QC và chạy `road_check lint` trước khi chốt job.  
-Nhãn của bạn đi vào model ở đâu? Chọn một lỗi đã sửa và nói nó làm model học sai thế nào: Các nhãn này là ground truth đầu vào để huấn luyện và đánh giá các model nhận thức đường (road perception) của ADAS/SVM: `lane` làm đích cho model phát hiện vạch làn (như row-anchor) phục vụ giữ làn LKA/LDW; `drivable`, `road_curb`, `crosswalk` phục vụ phân đoạn vùng lái được; `traffic_light` và `traffic_sign` phục vụ phát hiện và phân loại tín hiệu giao thông; còn 4 tag ảnh dùng để tách dữ liệu theo góc camera và điều kiện vận hành (ODD). Ví dụ lỗi đã sửa là `QC1-01` (gán nhầm `camera = fisheye_right` cho ảnh `B06_04068_MVL.png` và ngược lại ở `B07_01216_MVR.png`): nếu không sửa, ảnh camera trái sẽ bị nạp vào nhánh dữ liệu camera phải và áp sai tham số hiệu chỉnh hình học (extrinsics) khi chiếu lên mặt phẳng BEV của hệ thống SVM, khiến model học ngược hướng hình học trái–phải quanh thân xe và dự đoán sai vị trí vạch/vùng lái khi hỗ trợ giữ làn hoặc đỗ xe.  
+- Nhãn của bạn đi vào model ở đâu? Chọn một lỗi đã sửa và nói nó làm model học sai thế nào?: Các nhãn này là ground truth đầu vào để huấn luyện và đánh giá các model nhận thức đường (road perception) của ADAS/SVM: `lane` làm đích cho model phát hiện vạch làn (như row-anchor) phục vụ giữ làn LKA/LDW; `drivable`, `road_curb`, `crosswalk` phục vụ phân đoạn vùng lái được; `traffic_light` và `traffic_sign` phục vụ phát hiện và phân loại tín hiệu giao thông; còn 4 tag ảnh dùng để tách dữ liệu theo góc camera và điều kiện vận hành (ODD). Ví dụ lỗi đã sửa là `QC1-01` (gán nhầm `camera = fisheye_right` cho ảnh `B06_04068_MVL.png` và ngược lại ở `B07_01216_MVR.png`): nếu không sửa, ảnh camera trái sẽ bị nạp vào nhánh dữ liệu camera phải và áp sai tham số hiệu chỉnh hình học (extrinsics) khi chiếu lên mặt phẳng BEV của hệ thống SVM, khiến model học ngược hướng hình học trái–phải quanh thân xe và dự đoán sai vị trí vạch/vùng lái khi hỗ trợ giữ làn hoặc đỗ xe.  
 
 ## 8. (Tùy chọn, buffer) Từ polyline đến đích row-anchor
 | y | 720 | 680 | 640 | 600 | 560 |
