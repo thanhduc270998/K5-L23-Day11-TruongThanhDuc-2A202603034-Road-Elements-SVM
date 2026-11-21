@@ -47,10 +47,6 @@ Bạn kiểm lô của tôi:  Quyết định nhận được:
 | `TruongThanhDuc-fisheye.zip` | Có (CVAT for images 1.1, không kèm ảnh) | `6 / 6` (`B01`) | `6 / 6` (`B02`) | Có (đủ 8/8 ảnh, đúng 4 hướng: `fisheye_front`, `fisheye_rear`, `fisheye_left`, `fisheye_right`) |
 
 ## 6. Ảnh chụp màn hình
-1. Tab Labels của project.
-2. Một ảnh camera trước đã gán đủ (làn, vùng lái, đèn/biển).
-3. Một ảnh fisheye đã gán, phóng to đoạn polyline cong.
-4. Một đoạn XML có <polyline label="lane">.
 1. ![Tab Labels](tab-labels.png)
 2. ![làn, vùng lái, đèn/biển](lane-areadrive-traffic.png)
 3. ![fisheye](fisheye.png)
