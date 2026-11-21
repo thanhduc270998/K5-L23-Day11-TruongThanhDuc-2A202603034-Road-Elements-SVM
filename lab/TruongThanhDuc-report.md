@@ -3,7 +3,7 @@
 -   Mã học viên:  2A202603034
 -   Phiên bản CVAT (Help → About):  2.74.1
 -   Guideline: Road v1.0    
--   Lần nộp (`revision` trong manifest):  1
+-   Lần nộp (`revision` trong manifest):  2
 -   Thời điểm export (ngày giờ trên CVAT):  21/11/2026  
 -   Số lần nộp lại sau Rework: 1
 
