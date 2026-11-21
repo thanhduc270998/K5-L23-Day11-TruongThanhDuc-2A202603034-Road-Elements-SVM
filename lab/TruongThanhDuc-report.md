@@ -51,6 +51,10 @@ Bạn kiểm lô của tôi:  Quyết định nhận được:
 2. Một ảnh camera trước đã gán đủ (làn, vùng lái, đèn/biển).
 3. Một ảnh fisheye đã gán, phóng to đoạn polyline cong.
 4. Một đoạn XML có <polyline label="lane">.
+1. ![Tab Labels](tab-labels.png)
+2. ![làn, vùng lái, đèn/biển](lane-areadrive-traffic.png)
+3. ![fisheye](fisheye.png)
+4. ![XML](xml.png)
 
 ## 7. Tự đánh giá
 Lỗi bạn mắc nhiều nhất hôm nay (theo mã QC1-xx), và cách tránh ở Ngày 20: 
